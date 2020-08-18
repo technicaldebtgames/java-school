@@ -1,5 +1,6 @@
 package com.lambdaschool.schools.services;
 
+import com.lambdaschool.schools.exceptions.StudentNotFoundException;
 import com.lambdaschool.schools.models.Course;
 import com.lambdaschool.schools.models.Instructor;
 import com.lambdaschool.schools.models.StudCourses;
@@ -133,7 +134,7 @@ public class CoursesServiceImpl
         long courseid)
     {
         studentrepos.findById(studentid)
-            .orElseThrow(() -> new EntityNotFoundException("Student id " + studentid + " not found!"));
+            .orElseThrow(() -> new StudentNotFoundException("Student id " + studentid + " not found!"));
         courserepos.findById(courseid)
             .orElseThrow(() -> new EntityNotFoundException("Course id " + courseid + " not found!"));
 
@@ -156,7 +157,7 @@ public class CoursesServiceImpl
         long courseid)
     {
         studentrepos.findById(studentid)
-            .orElseThrow(() -> new EntityNotFoundException("Student id " + studentid + " not found!"));
+            .orElseThrow(() -> new StudentNotFoundException("Student id " + studentid + " not found!"));
         courserepos.findById(courseid)
             .orElseThrow(() -> new EntityNotFoundException("Course id " + courseid + " not found!"));
 
